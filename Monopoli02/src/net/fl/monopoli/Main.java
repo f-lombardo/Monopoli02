@@ -6,7 +6,7 @@ public class Main {
 
   public static void main(String[] args) {
     System.out.println("Welcome to the Monopoli simulation!");
-    System.out.println("Please tell me how many player do you want (from 1 to 8)");
+    System.out.println("Please tell me how many player do you want (from 2 to 8)");
     runSimulation();
     System.out.println("Thank you for playing with Monopoli!");
   }

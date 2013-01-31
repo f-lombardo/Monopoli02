@@ -5,6 +5,7 @@ import java.util.*;
 public class Monopoli {
 
   public static final int MAX_PLAYERS = 8;
+  public static final int MIN_PLAYERS = 2;
   
   private List<Player> players;
   private Iterator<Player> roundIterator;
@@ -35,6 +36,9 @@ public class Monopoli {
   }
 
   public void newRound() {
+    if (players.size() < MIN_PLAYERS) {
+      throw new TooFewPlayersException();
+    }
     this.roundIterator = players.iterator();
   }
 

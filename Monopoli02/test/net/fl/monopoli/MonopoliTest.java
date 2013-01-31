@@ -17,11 +17,8 @@ public class MonopoliTest {
   
   @Test
   public void threePlayersScenario() {
-    
     Player player1 = newPlayerStartingOnSquareZero("Player1");
-    
     Player player2 = newPlayerStartingOnSquareZero("Player 2");
-    
     Player player3 = newPlayerStartingOnSquareZero("Player 3");
     
     monopoli.newRound();

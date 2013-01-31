@@ -9,7 +9,7 @@ public class FixedResultDie implements Die {
   }
 
   @Override
-  public void doThrow() {
+  public void roll() {
     // TODO Auto-generated method stub
     
   }

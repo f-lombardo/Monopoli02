@@ -12,7 +12,7 @@ public class Player {
   public void throwDice(Die... dice) {
     int diceResult = 0;
     for (int i = 0; i < dice.length; i++) {
-      dice[i].doThrow();
+      dice[i].roll();
       diceResult += dice[i].result();
     }
     board.move(this, diceResult);

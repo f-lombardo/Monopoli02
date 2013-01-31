@@ -16,6 +16,9 @@ public class Monopoli {
   }
   
   public void addPlayer(Player player) {
+    if (players.size() >= MAX_PLAYERS) {
+      throw new TooManyPlayersException();
+    }
     this.players.add(player);
     this.board.add(player);
   }

@@ -53,9 +53,7 @@ public class MonopoliTest {
       newPlayerStartingOnSquareZero("LastPlayer");
       fail("Too many players accepted");
     } catch (TooManyPlayersException e) {
-      
     }
-   
   }
   
   private void assertPlayerMovesAroundAccordingToDice(Player player, int die1Result, int die2Result) {

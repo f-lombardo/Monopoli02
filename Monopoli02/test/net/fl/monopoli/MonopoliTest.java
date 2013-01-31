@@ -44,6 +44,20 @@ public class MonopoliTest {
     assertNull(monopoli.nextPlayer());
   }
   
+  @Test
+  public void tooManyPlayersAreNotAdmitted() throws Exception {
+    for (int i = 1; i <= Monopoli.MAX_PLAYERS; i++) {
+      newPlayerStartingOnSquareZero("Player " + i);
+    }
+    try {
+      newPlayerStartingOnSquareZero("LastPlayer");
+      fail("Too many players accepted");
+    } catch (TooManyPlayersException e) {
+      
+    }
+   
+  }
+  
   private void assertPlayerMovesAroundAccordingToDice(Player player, int die1Result, int die2Result) {
     assertEquals(player, monopoli.nextPlayer());
     player.throwDice(new FixedResultDie(die1Result), new FixedResultDie(die2Result));

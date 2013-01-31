@@ -4,6 +4,8 @@ import java.util.*;
 
 public class Monopoli {
 
+  public static final int MAX_PLAYERS = 8;
+  
   private List<Player> players;
   private Iterator<Player> roundIterator;
   private Board board;

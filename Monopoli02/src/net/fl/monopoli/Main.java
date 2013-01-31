@@ -6,15 +6,16 @@ public class Main {
 
   public static void main(String[] args) {
     System.out.println("Welcome to the Monopoli simulation!");
-    System.out.println("Please tell me how many player do you want (from 1 to 8");
+    System.out.println("Please tell me how many player do you want (from 1 to 8)");
     runSimulation();
+    System.out.println("Thank you for playing with Monopoli!");
   }
 
   private static void runSimulation() {
     try {
       new MonopoliSimulation(readNrOfPlayers());
     } catch (Exception e) {
-      System.out.println(e.getMessage());
+      System.out.println(e);
     }
   }
 

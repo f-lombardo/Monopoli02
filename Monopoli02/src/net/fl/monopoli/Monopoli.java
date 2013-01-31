@@ -19,7 +19,10 @@ public class Monopoli {
   }
 
   public Player nextPlayer() {
-    return roundIterator.next();
+    if (roundIterator.hasNext()) {
+      return roundIterator.next();
+    }
+    return null;
   }
 
   public Square square(int i) {

@@ -16,7 +16,7 @@ public class MonopoliSimulation {
         System.out.println(player + " is on " + monopoli.position(player));
         player.throwDice(die1, die2);
         System.out.println(player + " rolls " + die1.result() + " / " + die2.result());
-        System.out.println(player + " goes on square " + monopoli.position(player));
+        System.out.println(player + " goes on " + monopoli.position(player));
       } 
     }
   }

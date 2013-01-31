@@ -28,6 +28,21 @@ public class MonopoliTest {
     assertPlayerMovesAroundAccordingToDice(player3, 50, 6);
   }
   
+  @Test
+  public void nextPlayerReturnsNullOnNoMorePlayers() {
+    Player player1 = newPlayerStartingOnSquareZero("Player1");
+    Player player2 = newPlayerStartingOnSquareZero("Player 2");
+    
+    monopoli.newRound();
+    assertThat(monopoli.nextPlayer(), is(player1));
+    assertThat(monopoli.nextPlayer(), is(player2));
+    assertNull(monopoli.nextPlayer());
+    
+    monopoli.newRound();
+    assertThat(monopoli.nextPlayer(), is(player1));
+    assertThat(monopoli.nextPlayer(), is(player2));
+    assertNull(monopoli.nextPlayer());
+  }
   
   private void assertPlayerMovesAroundAccordingToDice(Player player, int die1Result, int die2Result) {
     assertEquals(player, monopoli.nextPlayer());

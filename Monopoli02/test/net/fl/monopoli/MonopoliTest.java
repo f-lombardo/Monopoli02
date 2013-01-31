@@ -27,7 +27,8 @@ public class MonopoliTest {
     assertPlayerMovesAroundAccordingToDice(player2, 5, 5);
     assertPlayerMovesAroundAccordingToDice(player3, 50, 6);
   }
-
+  
+  
   private void assertPlayerMovesAroundAccordingToDice(Player player, int die1Result, int die2Result) {
     assertEquals(player, monopoli.nextPlayer());
     player.throwDice(new FixedResultDie(die1Result), new FixedResultDie(die2Result));

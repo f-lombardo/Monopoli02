@@ -15,6 +15,7 @@ public class Monopoli {
   
   public void addPlayer(Player player) {
     this.players.add(player);
+    this.board.add(player);
   }
 
   public Player nextPlayer() {
@@ -22,7 +23,7 @@ public class Monopoli {
   }
 
   public Square square(int i) {
-    return null;
+    return board.square(i);
   }
 
   public void newRound() {
@@ -30,13 +31,11 @@ public class Monopoli {
   }
 
   public Square position(Player player) {
-    // TODO Auto-generated method stub
-    return null;
+    return board.position(player);
   }
 
   public int size() {
     return this.board.size();
   }
-
 
 }

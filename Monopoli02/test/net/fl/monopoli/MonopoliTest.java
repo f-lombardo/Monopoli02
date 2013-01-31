@@ -33,7 +33,7 @@ public class MonopoliTest {
 
   private void assertPlayerMovesAroundAccordingToDice(Player player, int die1Result, int die2Result) {
     assertEquals(player, monopoli.nextPlayer());
-    player.throwDice(new FixedResultDie(die1Result), new FixedResultDie(die1Result));
+    player.throwDice(new FixedResultDie(die1Result), new FixedResultDie(die2Result));
     assertThat(monopoli.position(player), is(monopoli.square((die1Result + die2Result) % monopoli.size())));
   }
   

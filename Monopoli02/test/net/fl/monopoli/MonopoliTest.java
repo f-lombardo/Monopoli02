@@ -3,37 +3,46 @@ package net.fl.monopoli;
 import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.*;
 
-import org.junit.Test;
+import org.junit.*;
 
 
 public class MonopoliTest {
+  
+  private Monopoli monopoli;
 
+  @Before
+  public void setUp() {
+    monopoli = new Monopoli();
+  }
+  
   @Test
   public void threePlayersScenario() {
-    Monopoli monopoli = new Monopoli();
     
-    Player player1 = new Player("Player 1");
-    monopoli.addPlayer(player1);
-    assertThat(player1.position(), is(monopoli.square(0)));
+    Player player1 = newPlayerStartingOnSquareZero("Player1");
     
-    Player player2 = new Player("Player 2");
-    monopoli.addPlayer(player2);
-    assertThat(player2.position(), is(monopoli.square(0)));
+    Player player2 = newPlayerStartingOnSquareZero("Player 2");
     
-    Player player3 = new Player("Player 3");
-    monopoli.addPlayer(player3);
-    assertThat(player3.position(), is(monopoli.square(0)));
+    Player player3 = newPlayerStartingOnSquareZero("Player 3");
     
-    assertEquals(player1, monopoli.nextPlayer());
-    player1.throwDice(new FixedResultDie(1), new FixedResultDie(3));
-    assertThat(player1.position(), is(monopoli.square(3)));
+    monopoli.newRound();
     
-    assertEquals(player2, monopoli.nextPlayer());
-    player2.throwDice(new FixedResultDie(1), new FixedResultDie(5));
-    assertThat(player2.position(), is(monopoli.square(6)));
-    
-    assertEquals(player3, monopoli.nextPlayer());
-    player3.throwDice(new FixedResultDie(1), new FixedResultDie(40));
-    assertThat(player3.position(), is(monopoli.square(0)));   
+    assertPlayerMovesAroundAccordingToDice(player1, 1, 3);
+    assertPlayerMovesAroundAccordingToDice(player2, 5, 5);
+    assertPlayerMovesAroundAccordingToDice(player3, 50, 6);
+  }
+
+  private void assertPlayerMovesAroundAccordingToDice(Player player, int die1Result, int die2Result) {
+    assertEquals(player, monopoli.nextPlayer());
+    player.throwDice(new FixedResultDie(die1Result), new FixedResultDie(die1Result));
+    assertThat(monopoli.position(player), is(monopoli.square((die1Result + die2Result) % monopoli.size())));
+  }
+  
+  private Player newPlayerStartingOnSquareZero(String playerName) {
+    Player player = new Player(playerName);
+    monopoli.addPlayer(player);
+    Square position = monopoli.position(player);
+    assertNotNull("Position shouldn't be null", position);
+    assertThat(position, is(monopoli.square(0)));
+    return player;
   }
 }

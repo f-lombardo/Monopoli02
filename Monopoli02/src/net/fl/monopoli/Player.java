@@ -12,9 +12,5 @@ public class Player {
     
   }
 
-  public Square position() {
-    // TODO Auto-generated method stub
-    return null;
-  }
 
 }
